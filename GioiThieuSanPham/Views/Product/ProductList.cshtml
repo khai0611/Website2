@@ -1,0 +1,26 @@
+﻿@model List<GioiThieuSanPham.Models.ProductModel>
+
+@{
+    ViewBag.Title = "Product List";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<div class="center_title_bar">Product List</div>
+<a href="/Product/AddProduct">Add</a>
+<hr />
+@foreach (var item in Model)
+{
+    <div class="prod_box">
+        <div class="center_prod_box">
+            <div class="product_title"><a href="~/Product/ProductInfo">@item.Productname</a></div>
+            <div class="product_img"><a href="~/Product/ProductInfo?id=@item.ID"><img src="/Theme/images/p1.jpg" alt="" border="0" /></a></div>
+            <div class="prod_price">
+            <span class="reduce">@string.Format("{0:#,0}", @item.OldPrice) đ</span> 
+            <span class="price">@string.Format("{0:#,0}", @item.NewPrice)</span>
+            </div>
+        </div>
+        <div class="prod_details_tab"> <a href="~/Product/ProductInfo?id=@item.ID" class="prod_buy">Add to Cart</a> <a href="~/Product/ProductInfo" class="prod_details">Details</a> </div>
+    </div>
+}
+
+

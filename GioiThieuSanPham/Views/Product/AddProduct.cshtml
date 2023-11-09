@@ -1,0 +1,126 @@
+﻿@model GioiThieuSanPham.Models.ProductModel
+
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>Add Product</h2>
+
+@using (Html.BeginForm("SaveNewProduct", "Product", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h3>Add Product</h3>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label>ID</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Productname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Product name</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Productname, new { htmlAttributes = new { @class = "form-control", @id = "txtName" } })
+            @Html.ValidationMessageFor(model => model.Productname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Old Price</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OldPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OldPrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>New Price</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NewPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NewPrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Manufacturer</label>
+        <div class="col-md-10">
+            @*<select name="Manufacturer">
+                    <option>Toshiba</option>
+                    <option>Samsung</option>
+                    <option>LG</option>
+                </select>*@
+            @Html.EditorFor(model => model.Manufacturer, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Manufacturer, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Warranty</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Warranty, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Warranty, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Summary Information</label>
+        <div class="col-md-10">
+            <textarea name="SummaryInfo"></textarea>
+            @*@Html.TextAreaFor(model => model.SummaryInfo, new { @class = "form-control" } )*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Expiry date</label>
+        <div class="col-md-10">
+            <input type="date" name="ExpiryDate" value="@String.Format("{0:yyyy-MM-dd}", DateTime.Now)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Color</label>
+        <div class="col-md-10">
+            <input type="color" name="Color" value="#FFFFFF" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <div class="col-md-10">
+            <input type="email" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Active</label>
+        <div class="col-md-10">
+            <input type="checkbox" value="true" name="active" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Condition</label>
+        <div class="col-md-10">
+            <span>New</span>
+            <input type="radio" value="New" name="Condition" />
+            <span>Old</span>
+            <input type="radio" value="Old" name="Condition" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

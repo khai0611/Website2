@@ -1,0 +1,75 @@
+﻿@model GioiThieuSanPham.Models.ProductModel
+
+@{
+    ViewBag.Title = "New Product Information";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>New Product Information</h2>
+
+<div>
+    <h4>ProductModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Productname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Productname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OldPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OldPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Warranty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Warranty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SummaryInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SummaryInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpiryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpiryDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

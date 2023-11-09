@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>Login to system</h2>
+
+<form action="/Account/AccountInformation" method="get">
+    <label>Username:</label>
+    <input type="text" name="userName" />
+    <label>Password:</label>
+    <input type="password" name="passWord" />
+
+    @*<input type="submit" value="Login" />*@
+    <button type="submit">Login</button>
+
+    @if (ViewBag.Message != null)
+    {
+        <p style="color:red">@ViewBag.Message</p>
+    }
+</form>
