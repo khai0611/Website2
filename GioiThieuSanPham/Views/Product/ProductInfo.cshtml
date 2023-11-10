@@ -1,20 +1,20 @@
-﻿
+﻿@using GioiThieuSanPham.Models
+@model GioiThieuSanPham.Models.Product
 @{
     ViewBag.Title = "Product Info";
     Layout = "~/Views/Shared/layout.cshtml";
-    int id = ViewBag.id;
-
-    var Product = new GioiThieuSanPham.Models.ProductModel().Information(id);
+    QuanLySanPhamEntities db = new QuanLySanPhamEntities();
+    Manufacturer manufacturer = db.Manufacturers.Find(Model.ManufacturerID);
 }
 
-@if (Product == null)
+@if (Model == null)
 {
     <div class="center_title_bar">Product is not exist</div>
 }
 else
 {
     <div class="center_content">
-        <div class="center_title_bar">@Product.Productname</div>
+        <div class="center_title_bar">@Model.ProductName</div>
         <div class="prod_box_big">
             <div class="center_prod_box_big">
                 <div class="product_img_big">
@@ -22,14 +22,22 @@ else
                     <div class="thumbs"> <a href="~/Product/ProductInfo" title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img src="images/thumb1.jpg" alt="" border="0"></a> <a href="~/Product/ProductInfo" title="header=[Thumb2] body=[&nbsp;] fade=[on]"><img src="images/thumb2.jpg" alt="" border="0"></a> <a href="~/Product/ProductInfo" title="header=[Thumb3] body=[&nbsp;] fade=[on]"><img src="images/thumb1.jpg" alt="" border="0"></a> </div>
                 </div>
                 <div class="details_big_box">
-                    <div class="product_title_big">@Product.Productname</div>
+                    <div class="product_title_big">@Model.ProductName</div>
                     <div class="specifications">
-                        Warranties: <span class="blue">@Product.Warranty months</span><br>
-                        Manufacturer :<span class="blue"> @Product.Manufacturer</span><br>
-                        Information :<span class="blue">@Product.SummaryInfo </span><br>
+                        Manufacturer :
+
+                        @if (manufacturer != null)
+                        {
+                            <span class="blue">@manufacturer.ManufacturerName</span>
+                        }
+                        <br>
+                        Information :<span class="blue">@Model.Summary</span><br>
                     </div>
-                    <div class="prod_price_big"><span class="reduce">@string.Format("{0:#,0}", Product.OldPrice)đ</span> <span class="price">@string.Format("{0:#,0}", Product.NewPrice)đ</span></div>
-                    <a href="~/Product/ProductInfo" class="prod_buy">add to cart</a>
+                    <div class="prod_price_big">
+                        <span class="reduce">@string.Format("{0:#,0}", Model.OldPrice)đ</span>
+                        <span class="price">@string.Format("{0:#,0}", Model.NewPrice)đ</span>
+                    </div>
+                    <a href="~/Product/Update?id=@Model.ID" class="prod_buy">Update</a>
                 </div>
             </div>
         </div>

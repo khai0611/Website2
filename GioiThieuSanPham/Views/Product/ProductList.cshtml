@@ -1,4 +1,4 @@
-﻿@model List<GioiThieuSanPham.Models.ProductModel>
+﻿@model List<GioiThieuSanPham.Models.Product>
 
 @{
     ViewBag.Title = "Product List";
@@ -6,20 +6,23 @@
 }
 
 <div class="center_title_bar">Product List</div>
-<a href="/Product/AddProduct">Add</a>
+<a href="/Product/AddNew">Add</a>
 <hr />
 @foreach (var item in Model)
 {
     <div class="prod_box">
         <div class="center_prod_box">
-            <div class="product_title"><a href="~/Product/ProductInfo">@item.Productname</a></div>
+            <div class="product_title"><a href="~/Product/ProductInfo">@item.ProductName</a></div>
             <div class="product_img"><a href="~/Product/ProductInfo?id=@item.ID"><img src="/Theme/images/p1.jpg" alt="" border="0" /></a></div>
             <div class="prod_price">
             <span class="reduce">@string.Format("{0:#,0}", @item.OldPrice) đ</span> 
-            <span class="price">@string.Format("{0:#,0}", @item.NewPrice)</span>
+            <span class="price">@string.Format("{0:#,0}", @item.NewPrice) đ</span>
             </div>
         </div>
-        <div class="prod_details_tab"> <a href="~/Product/ProductInfo?id=@item.ID" class="prod_buy">Add to Cart</a> <a href="~/Product/ProductInfo" class="prod_details">Details</a> </div>
+        <div class="prod_details_tab"> 
+        <a href="#" onclick="if (confirm('Are you sure to delete this item?')== true) { location.href ='/Product/Delete?id=@item.ID'}" class="prod_buy">Delete</a> 
+        <a href="~/Product/ProductInfo?id=@item.ID" class="prod_details">Details</a> 
+        </div>
     </div>
 }
 

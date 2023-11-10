@@ -8,7 +8,7 @@ namespace GioiThieuSanPham.Models
     public class ProductModel
     {
         public int ID { get; set; }
-        public string Productname { get; set; }
+        public string ProductName { get; set; }
         public float OldPrice { get; set; }
         public float NewPrice { get; set; }
         public string Manufacturer { get; set; }
@@ -23,7 +23,7 @@ namespace GioiThieuSanPham.Models
 
             ProductModel productModel = new ProductModel();
             productModel.ID = 1;
-            productModel.Productname = "Drill";
+            productModel.ProductName = "Drill";
             productModel.OldPrice = 1000000;
             productModel.NewPrice = 800000;
             productModel.Manufacturer = "Samsung";
@@ -34,7 +34,7 @@ namespace GioiThieuSanPham.Models
 
             ProductModel productModel1 = new ProductModel();
             productModel1.ID = 2;
-            productModel1.Productname = "Fan";
+            productModel1.ProductName = "Fan";
             productModel1.OldPrice = 500000;
             productModel1.NewPrice = 300000;
             productModel1.Manufacturer = "Asia";
@@ -53,7 +53,7 @@ namespace GioiThieuSanPham.Models
             {
                 ProductModel productModel = new ProductModel();
                 productModel.ID = 1;
-                productModel.Productname = "Drill";
+                productModel.ProductName = "Drill";
                 productModel.OldPrice = 1000000;
                 productModel.NewPrice = 800000;
                 productModel.Manufacturer = "Samsung";
@@ -67,7 +67,7 @@ namespace GioiThieuSanPham.Models
             {
                 ProductModel productModel1 = new ProductModel();
                 productModel1.ID = 2;
-                productModel1.Productname = "Fan";
+                productModel1.ProductName = "Fan";
                 productModel1.OldPrice = 500000;
                 productModel1.NewPrice = 300000;
                 productModel1.Manufacturer = "Asia";

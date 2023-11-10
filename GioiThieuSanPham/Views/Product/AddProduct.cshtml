@@ -19,14 +19,14 @@
         <label>ID</label>
         <div class="col-md-10">
             @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Productname, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
         <label>Product name</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Productname, new { htmlAttributes = new { @class = "form-control", @id = "txtName" } })
-            @Html.ValidationMessageFor(model => model.Productname, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control", @id = "txtName" } })
+            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -109,7 +109,7 @@
             <span>New</span>
             <input type="radio" value="New" name="Condition" />
             <span>Old</span>
-            <input type="radio" value="Old" name="Condition" />
+            <input type="radio" value="Old" name="Condition" /> 
         </div>
     </div>
 
